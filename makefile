@@ -5,7 +5,7 @@ build:
 	cmake --build ./build
 
 run: build
-	./build/Transaction
+	./build/Redis
 
 hash_table.a:
 	cmake -S ./table/ -B ./table/build
