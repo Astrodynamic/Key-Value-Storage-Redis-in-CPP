@@ -1,41 +1,48 @@
-# Redis
+# Redis - Key-Value Store
 
-Implementation of in-memory key-value store for storing various financial transaction data.
+Redis is a key-value store implemented in C++. The keys in the Redis store are strings, and the values are records of students with the following fields:
+- Last name
+- First name
+- Year of birth
+- City
+- Number of current coins
 
-## Introduction
+This README will help you understand how to build, use, and test the Redis key-value store.
 
-In this project, you will need to recall and learn more about such data structures as hash tables and self-balancing
-binary trees, and implement a key-value store based on them.
+## Build
 
-## Implementation on hashtable, binary tree, b+tree
+The project can be built using CMake version 3.15 or higher. To build Redis, follow these steps:
+1. Clone this repository.
+2. Navigate to the cloned directory.
+3. Run `cmake -S . -B ./build` command.
+4. Run `cmake --build ./build` command.
 
-### Description of key-value store functions
+You can also build the individual libraries by running one of the following commands:
+- `make hash_table.a`: builds the Hash Table library.
+- `make self_balancing_binary_search_tree.a`: builds the Self Balancing Binary Search Tree library.
+- `make b_plus_tree.a`: builds the B+ Tree library.
+
+## Dependencies
+
+The Redis key-value store depends on the following libraries:
+- BPlusTreeLibrary
+- HashTableLibrary
+- SelfBalancingBinarySearchTreeLibrary
+
+## Usage
+
+To use the Redis key-value store, you can run the following commands:
 
 ### SET
 
-This command is used to set the key and its value. In the example below, the key is the string `foo`, and the value is
-the structure described above. The values of the new record fields are entered in the order they are described in the
-structure. `EX` is used as an optional parameter to specify the lifetime of the record you are creating. If the optional
-field is not specified, the record lifetime is not limited by default.
-
-Description of the `SET` command parameters:
-
-```
-SET <key> <Last name> <First name> <Year of birth> <City> <Number of current coins> EX <time in seconds>
-```
-
-An example of using the `SET` command to create a record with no time limit:
-
+This command is used to set the key and its value. In the example below, the key is the string foo, and the value is the structure described above. The values of the new record fields are entered in the order they are described in the structure. EX is used as an optional parameter to specify the lifetime of the record you are creating. If the optional field is not specified, the record lifetime is not limited by default.
 ```
 SET foo Vasilev Ivan 2000 Moscow 55 
 > OK
 SET foo Vasilev 123 aaaaa Moscow 55 
 > ERROR: unable to cast value "aaaa" to type int 
 ```
-
-An example of using the `SET` command to create a record with a time limit. The record will exist for 10 seconds, and
-then it will be automatically deleted:
-
+An example of using the SET command to create a record with a time limit. The record will exist for 10 seconds, and then it will be automatically deleted:
 ```
 SET foo Vasilev Ivan 2000 Moscow 55 EX 10 
 > OK
@@ -43,8 +50,7 @@ SET foo Vasilev Ivan 2000 Moscow 55 EX 10
 
 ### GET
 
-This command is used to get the value associated with the key. If there is no such record, `(null)` will be returned:
-
+This command is used to get the value associated with the key. If there is no such record, (null) will be returned:
 ```
 GET foo
 > Vasilev Ivan 2000  Moscow   55 
@@ -54,9 +60,7 @@ GET unknownkey
 
 ### EXISTS
 
-This command checks if a record with the given key exists. It returns `true` if the object exists or `false` if it
-doesn't:
-
+This command checks if a record with the given key exists. It returns true if the object exists or false if it doesn't:
 ```
 EXISTS foo
 > true
@@ -64,9 +68,7 @@ EXISTS foo
 
 ### DEL
 
-This command deletes the key and the corresponding value, then returns `true` if the record was successfully deleted,
-otherwise `false`:
-
+This command deletes the key and the corresponding value, then returns true if the record was successfully deleted, otherwise false:
 ```
 DEL foo
 > true
@@ -75,25 +77,20 @@ DEL foo
 ### UPDATE
 
 This command updates the value by the corresponding key if such a key exists:
-
 ```
 SET foo Vas I 20 Mos 5 
 > OK
 UPDATE foo Vasilev Ivan 2000 Moscow 55 
 > OK
-
 GET foo
 > Vasilev Ivan 2000 Moscow 55
 ```
-
 If there is a field that is not planned to change, it is replaced by a dash "-":
-
 ```
 SET foo Vas I 20 Mos 5 
 > OK
 UPDATE foo Vasilev - - - 55
 > OK
-
 GET foo
 > Vasilev I 20 Mos 55 
 ```
@@ -101,7 +98,6 @@ GET foo
 ### KEYS
 
 Returns all the keys that are in the store:
-
 ```
 KEYS
 1) boo
@@ -218,8 +214,6 @@ EXPORT ~/Desktop/TestData/export.dat
 
 After the `OK` the number of strings exported from the file is displayed.
 
-##  Implementation of in-memory key-value store
+## License
 
-- The program be developed in C++ language of C++17 standard
-- When writing code it is necessary to follow the Google style
-- Prepare full coverage with unit-tests
+This project is released under the [MIT license](LICENSE). You can find a copy of the MIT license in the LICENSE file.

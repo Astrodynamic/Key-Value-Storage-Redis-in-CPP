@@ -41,4 +41,4 @@ lcov: test
 	cd ./test/build; make coverage;
 	open ./test/build/coverage-report/index.html 
 
-.PHONY: all build rebuild unistall clean cppcheck clang-format tests
+.PHONY: all build rebuild unistall clean cppcheck clang-format tests lcov
