@@ -1,6 +1,6 @@
 #include "self_balancing_binary_search_tree.h"
 
-namespace s21 {
+namespace FKG {
 template <>
 const std::size_t SelfBalancingBinarySearchTree<std::string, Storage>::Upload(
     std::ifstream &is) {
@@ -35,4 +35,4 @@ const std::size_t SelfBalancingBinarySearchTree<std::string, Storage>::Export(
   return unloaded;
 }
 
-}  // namespace s21
+}  // namespace FKG

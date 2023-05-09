@@ -5,9 +5,9 @@
 #include "self_balancing_binary_search_tree.h"
 
 TEST(SelfBalancingBinarySearchTreeTest, Set_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
   tree.Showall();
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -55,8 +55,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Set_1) {
 }
 
 TEST(HashTable, Set_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -104,8 +104,8 @@ TEST(HashTable, Set_1) {
 }
 
 TEST(BPlusTree, Set_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -153,8 +153,8 @@ TEST(BPlusTree, Set_1) {
 }
 
 TEST(SelfBalancingBinarySearchTreeTest, Get_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -206,8 +206,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Get_1) {
 }
 
 TEST(HashTable, Get_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -259,8 +259,8 @@ TEST(HashTable, Get_1) {
 }
 
 TEST(BPlusTree, Get_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -312,8 +312,8 @@ TEST(BPlusTree, Get_1) {
 }
 
 TEST(SelfBalancingBinarySearchTreeTest, GetAndUpdate) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -346,8 +346,8 @@ TEST(SelfBalancingBinarySearchTreeTest, GetAndUpdate) {
 }
 
 TEST(HashTable, GetAndUpdate) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -380,8 +380,8 @@ TEST(HashTable, GetAndUpdate) {
 }
 
 TEST(BPlusTree, GetAndUpdate) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -414,8 +414,8 @@ TEST(BPlusTree, GetAndUpdate) {
 }
 
 TEST(SelfBalancingBinarySearchTreeTest, Exists) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -463,8 +463,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Exists) {
 }
 
 TEST(HashTable, Exists) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -512,8 +512,8 @@ TEST(HashTable, Exists) {
 }
 
 TEST(BPlusTree, Exists) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -561,8 +561,8 @@ TEST(BPlusTree, Exists) {
 }
 
 TEST(SelfBalancingBinarySearchTreeTest, Del_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -617,8 +617,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Del_1) {
 }
 
 TEST(HashTable, Del_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -673,8 +673,8 @@ TEST(HashTable, Del_1) {
 }
 
 TEST(BPlusTree, Del_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -730,8 +730,8 @@ TEST(BPlusTree, Del_1) {
 
 // Test Update()
 TEST(SelfBalancingBinarySearchTreeTest, Update) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -779,8 +779,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Update) {
 }
 
 TEST(HashTable, Update) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -828,8 +828,8 @@ TEST(HashTable, Update) {
 }
 
 TEST(BPlusTree, Update) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str3, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str3, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -878,8 +878,8 @@ TEST(BPlusTree, Update) {
 
 // Test Keys()
 TEST(SelfBalancingBinarySearchTreeTest, Keys_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str4, str5, str6;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -922,8 +922,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Keys_1) {
 }
 
 TEST(HashTable, Keys_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str4, str5, str6;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -970,8 +970,8 @@ TEST(HashTable, Keys_1) {
 }
 
 TEST(BPlusTree, Keys_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2, str4, str5, str6;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2, str4, str5, str6;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -1015,8 +1015,8 @@ TEST(BPlusTree, Keys_1) {
 
 // Test Rename()
 TEST(SelfBalancingBinarySearchTreeTest, Rename_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1;
 
   str1.surname = "1";
   str1.name = "123";
@@ -1038,8 +1038,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Rename_1) {
 }
 
 TEST(HashTable, Rename_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1;
 
   str1.surname = "1";
   str1.name = "123";
@@ -1067,8 +1067,8 @@ TEST(HashTable, Rename_1) {
 }
 
 TEST(BPlusTree, Rename_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1;
 
   str1.surname = "1";
   str1.name = "123";
@@ -1091,8 +1091,8 @@ TEST(BPlusTree, Rename_1) {
 
 // Test Find()
 TEST(SelfBalancingBinarySearchTreeTest, Find_1) {
-  s21::SelfBalancingBinarySearchTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2;
+  FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -1113,8 +1113,8 @@ TEST(SelfBalancingBinarySearchTreeTest, Find_1) {
 }
 
 TEST(HashTable, Find_1) {
-  s21::HashTable<std::string, s21::Storage> tree;
-  s21::Storage str1, str2;
+  FKG::HashTable<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;
@@ -1135,8 +1135,8 @@ TEST(HashTable, Find_1) {
 }
 
 TEST(BPlusTree, Find_1) {
-  s21::BPlusTree<std::string, s21::Storage> tree;
-  s21::Storage str1, str2;
+  FKG::BPlusTree<std::string, FKG::Storage> tree;
+  FKG::Storage str1, str2;
   str1.surname = "1";
   str1.name = "123";
   str1.year_of_birth = 10;

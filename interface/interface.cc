@@ -96,12 +96,12 @@ void Interface::Exec() {
   std::cout << m_menus[MenuItem::kSelectContainer];
   std::size_t select = CheckInput(static_cast<std::size_t>(4));
   if (select == 1U) {
-    m_container = std::make_unique<s21::HashTable<std::string, s21::Storage>>();
+    m_container = std::make_unique<FKG::HashTable<std::string, FKG::Storage>>();
   } else if (select == 2U) {
-    m_container = std::make_unique<s21::BPlusTree<std::string, s21::Storage>>();
+    m_container = std::make_unique<FKG::BPlusTree<std::string, FKG::Storage>>();
   } else if (select == 3U) {
     m_container = std::make_unique<
-        s21::SelfBalancingBinarySearchTree<std::string, s21::Storage>>();
+        FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage>>();
   } else if (select == 4U) {
     Statistics();
     return;
@@ -158,7 +158,7 @@ const std::string Interface::CheckInput(std::istringstream &stream) {
   std::lock_guard<std::mutex> lock(m_mutex);
   std::size_t seconds;
   std::string key, ex;
-  s21::Storage storage;
+  FKG::Storage storage;
 
   stream >> key;
   stream >> storage;
@@ -220,7 +220,7 @@ const std::string Interface::CheckInput(std::istringstream &stream) {
 [[nodiscard]] const bool Interface::Update(std::istringstream &stream) {
   std::lock_guard<std::mutex> lock(m_mutex);
   std::string key;
-  s21::Storage storage;
+  FKG::Storage storage;
 
   stream >> key;
   stream >> storage;
@@ -272,7 +272,7 @@ const std::string Interface::CheckInput(std::istringstream &stream) {
 
 [[nodiscard]] const bool Interface::Find(std::istringstream &stream) {
   std::lock_guard<std::mutex> lock(m_mutex);
-  s21::Storage storage;
+  FKG::Storage storage;
   stream >> storage;
 
   std::size_t iteration{};
@@ -331,7 +331,7 @@ const std::string Interface::CheckInput(std::istringstream &stream) {
   return true;
 }
 
-void Interface::SetTTL(const s21::Storage &storage, const std::string &key) {
+void Interface::SetTTL(const FKG::Storage &storage, const std::string &key) {
   auto tp = storage.GetRemovalTime();
   if (tp.has_value()) {
     m_ttl.emplace(tp.value(), key);
@@ -354,12 +354,12 @@ void Interface::SetTTL(const s21::Storage &storage, const std::string &key) {
 void Interface::Statistics() {
   vector_container containers;
   containers.emplace_back(
-      std::make_unique<s21::HashTable<std::string, s21::Storage>>());
+      std::make_unique<FKG::HashTable<std::string, FKG::Storage>>());
   containers.emplace_back(
       std::make_unique<
-          s21::SelfBalancingBinarySearchTree<std::string, s21::Storage>>());
+          FKG::SelfBalancingBinarySearchTree<std::string, FKG::Storage>>());
   containers.emplace_back(
-      std::make_unique<s21::BPlusTree<std::string, s21::Storage>>());
+      std::make_unique<FKG::BPlusTree<std::string, FKG::Storage>>());
 
   std::cout << "Enter count elements";
   std::size_t countElements = CheckInput(static_cast<std::size_t>(100000));
@@ -407,7 +407,7 @@ void Interface::FillRandonly(vector_container &containers, std::size_t count) {
   for (int i = 0; i < count; ++i) {
     auto stream = CreateRecord(i);
     std::string key;
-    s21::Storage storage;
+    FKG::Storage storage;
     stream >> key;
     stream >> storage;
     containers[0]->Set(key, storage);
@@ -449,7 +449,7 @@ void Interface::TestSet(vector_container &containers, std::size_t countRepeat,
   for (int i = 0; i < countRepeat; ++i) {
     auto stream = CreateRecord(containers[0]->GetAmountElements());
     std::string key;
-    s21::Storage storage;
+    FKG::Storage storage;
     stream >> key;
     stream >> storage;
     for (int j = 0; j < containers.size(); ++j) {
@@ -494,7 +494,7 @@ void Interface::TestFind(vector_container &containers, std::size_t countRepeat,
   for (int i = 0; i < countRepeat; ++i) {
     std::string key =
         std::to_string(RandomInRange(1, containers[0]->GetAmountElements()));
-    std::optional<s21::Storage> temp = containers[0]->Get(key);
+    std::optional<FKG::Storage> temp = containers[0]->Get(key);
     for (int j = 0; j < containers.size(); ++j) {
       start = time_sc::now();
       auto _ = containers[j]->Find(temp.value());

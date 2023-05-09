@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_TREE_PLUS_BPTNODE_H_
-#define TRANSACTION_SRC_TREE_PLUS_BPTNODE_H_
+#ifndef TRANSACTIONTREE_PLUS_BPTNODE_H_
+#define TRANSACTIONTREE_PLUS_BPTNODE_H_
 
 #include <algorithm>
 #include <any>
@@ -15,7 +15,7 @@
 
 #include "storage.h"
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class BPTNode : public std::enable_shared_from_this<BPTNode<Key, Value> > {
  public:
@@ -25,22 +25,22 @@ class BPTNode : public std::enable_shared_from_this<BPTNode<Key, Value> > {
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Set(
       const Key &key, const Value &value) = 0;
   [[nodiscard]] virtual std::optional<Value> Get(const Key &key) = 0;
-  [[nodiscard]] virtual const bool Exists(const Key &key) = 0;
+  [[nodiscard]] virtual bool Exists(const Key &key) = 0;
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Del(
       const Key &key) = 0;
-  virtual const bool Update(const Key &key, const Value &value) = 0;
+  virtual bool Update(const Key &key, const Value &value) = 0;
   [[nodiscard]] virtual std::vector<Key> Keys() = 0;
   [[nodiscard]] virtual const std::optional<std::size_t> TTL(
       const Key &key) = 0;
   [[nodiscard]] virtual std::vector<Key> Find(const Value &value) = 0;
   virtual void Showall() = 0;
-  virtual const std::size_t Export(std::ofstream &os) = 0;
+  virtual std::size_t Export(std::ofstream &os) = 0;
 
   [[nodiscard]] virtual std::weak_ptr<BPTNode<Key, Value> > GetLeafByKey(
       const Key &key) = 0;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Split() = 0;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Merge() = 0;
-  virtual const bool Update(const Key &key, const Key &rename) = 0;
+  virtual bool Update(const Key &key, const Key &rename) = 0;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Remove(
       const Key &key) = 0;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Append(
@@ -63,17 +63,17 @@ class BPTINode final : virtual public BPTNode<Key, Value> {
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Set(
       const Key &key, const Value &value) override final;
   [[nodiscard]] virtual std::optional<Value> Get(const Key &key) override final;
-  [[nodiscard]] virtual const bool Exists(const Key &key) override final;
+  [[nodiscard]] virtual bool Exists(const Key &key) override final;
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Del(
       const Key &key) override final;
-  virtual const bool Update(const Key &key, const Value &value) override final;
+  virtual bool Update(const Key &key, const Value &value) override final;
   [[nodiscard]] virtual std::vector<Key> Keys() override final;
   [[nodiscard]] virtual const std::optional<std::size_t> TTL(
       const Key &key) override final;
   [[nodiscard]] virtual std::vector<Key> Find(
       const Value &value) override final;
   virtual void Showall() override final;
-  virtual const std::size_t Export(std::ofstream &os) override final;
+  virtual std::size_t Export(std::ofstream &os) override final;
 
   [[nodiscard]] virtual std::weak_ptr<BPTNode<Key, Value> > GetLeafByKey(
       const Key &key) override final;
@@ -81,7 +81,7 @@ class BPTINode final : virtual public BPTNode<Key, Value> {
       override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Merge()
       override final;
-  virtual const bool Update(const Key &key, const Key &rename) override final;
+  virtual bool Update(const Key &key, const Key &rename) override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Remove(
       const Key &key) override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Append(
@@ -102,17 +102,17 @@ class BPTLNode final : virtual public BPTNode<Key, Value> {
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Set(
       const Key &key, const Value &value) override final;
   [[nodiscard]] virtual std::optional<Value> Get(const Key &key) override final;
-  [[nodiscard]] virtual const bool Exists(const Key &key) override final;
+  [[nodiscard]] virtual bool Exists(const Key &key) override final;
   virtual std::tuple<const bool, std::shared_ptr<BPTNode<Key, Value> > > Del(
       const Key &key) override final;
-  virtual const bool Update(const Key &key, const Value &value) override final;
+  virtual bool Update(const Key &key, const Value &value) override final;
   [[nodiscard]] virtual std::vector<Key> Keys() override final;
   [[nodiscard]] virtual const std::optional<std::size_t> TTL(
       const Key &key) override final;
   [[nodiscard]] virtual std::vector<Key> Find(
       const Value &value) override final;
   virtual void Showall() override final;
-  virtual const std::size_t Export(std::ofstream &os) override final;
+  virtual std::size_t Export(std::ofstream &os) override final;
 
   [[nodiscard]] virtual std::weak_ptr<BPTNode<Key, Value> > GetLeafByKey(
       const Key &key) override final;
@@ -120,7 +120,7 @@ class BPTLNode final : virtual public BPTNode<Key, Value> {
       override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Merge()
       override final;
-  virtual const bool Update(const Key &key, const Key &rename) override final;
+  virtual bool Update(const Key &key, const Key &rename) override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Remove(
       const Key &key) override final;
   [[nodiscard]] virtual std::shared_ptr<BPTNode<Key, Value> > Append(
@@ -133,6 +133,6 @@ class BPTLNode final : virtual public BPTNode<Key, Value> {
 };
 
 #include "BPTNode.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_TREE_PLUS_BPTNODE_H_
+#endif  // TRANSACTIONTREE_PLUS_BPTNODE_H_

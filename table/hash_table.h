@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_TABLE_HASH_TABLE_H_
-#define TRANSACTION_SRC_TABLE_HASH_TABLE_H_
+#ifndef TRANSACTIONTABLE_HASH_TABLE_H_
+#define TRANSACTIONTABLE_HASH_TABLE_H_
 
 #include <algorithm>
 #include <chrono>
@@ -14,7 +14,7 @@
 #include "container.h"
 #include "storage.h"
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class HashTable : virtual public AbstractContainer<Key, Value> {
  public:
@@ -55,6 +55,6 @@ class HashTable : virtual public AbstractContainer<Key, Value> {
 };
 
 #include "hash_table.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_TABLE_HASH_TABLE_H_
+#endif  // TRANSACTIONTABLE_HASH_TABLE_H_

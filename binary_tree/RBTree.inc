@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_BINARY_TREE_RBTREE_TPP_
-#define TRANSACTION_SRC_BINARY_TREE_RBTREE_TPP_
+#ifndef TRANSACTIONBINARY_TREE_RBTREE_TPP_
+#define TRANSACTIONBINARY_TREE_RBTREE_TPP_
 
 template <class Key, class Value>
 typename RBTree<Key, Value>::node_Sptr RBTree<Key, Value>::get_parent(
@@ -376,4 +376,4 @@ typename RBTree<Key, Value>::iterator RBTree<Key, Value>::end() const {
   return {true, root_};
 }
 
-#endif  // TRANSACTION_SRC_BINARY_TREE_RBTREE_TPP_
+#endif  // TRANSACTIONBINARY_TREE_RBTREE_TPP_

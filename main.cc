@@ -1,6 +1,6 @@
 #include "interface.h"
 
-int main(int argc, char* argv[]) {
+int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
   Interface interface;
   interface.Exec();
   return 0;

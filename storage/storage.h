@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_STORAGE_STORAGE_H_
-#define TRANSACTION_SRC_STORAGE_STORAGE_H_
+#ifndef TRANSACTIONSTORAGE_STORAGE_H_
+#define TRANSACTIONSTORAGE_STORAGE_H_
 
 #include <chrono>
 #include <iomanip>
@@ -9,7 +9,7 @@
 #include <string>
 #include <utility>
 
-namespace s21 {
+namespace FKG {
 class Storage {
  public:
   std::optional<std::string> surname;
@@ -22,36 +22,38 @@ class Storage {
   friend std::istringstream &operator>>(std::istringstream &stream,
                                         Storage &storage);
 
+  Storage() = default;
+  Storage(const Storage &other);
+  ~Storage() = default;
+
   void SetRemovalTime(const std::chrono::seconds seconds);
   [[nodiscard]] const std::optional<std::chrono::steady_clock::time_point>
   GetRemovalTime() const;
 
   Storage &operator=(const Storage &other);
-  [[nodiscard]] const bool operator==(const Storage &other) const;
+  [[nodiscard]] bool operator==(const Storage &other) const;
 
-  [[nodiscard]] const bool operator!=(const Storage &other) const;
-  [[nodiscard]] const bool operator<(const Storage &other) const;
-  [[nodiscard]] const bool operator>(const Storage &other) const;
-  [[nodiscard]] const bool operator>=(const Storage &other) const;
-  [[nodiscard]] const bool operator<=(const Storage &other) const;
+  [[nodiscard]] bool operator!=(const Storage &other) const;
+  [[nodiscard]] bool operator<(const Storage &other) const;
+  [[nodiscard]] bool operator>(const Storage &other) const;
+  [[nodiscard]] bool operator>=(const Storage &other) const;
+  [[nodiscard]] bool operator<=(const Storage &other) const;
 
  private:
   std::optional<std::chrono::steady_clock::time_point> m_removal_time;
 
   template <class T>
-  [[nodiscard]] inline const bool Equal(const T &lhs, const T &rhs) const;
+  [[nodiscard]] inline bool Equal(const T &lhs, const T &rhs) const;
   template <class T>
-  [[nodiscard]] inline const bool NotEqual(const T &lhs, const T &rhs) const;
+  [[nodiscard]] inline bool NotEqual(const T &lhs, const T &rhs) const;
   template <class T>
-  [[nodiscard]] inline const bool IsLess(const T &lhs, const T &rhs) const;
+  [[nodiscard]] inline bool IsLess(const T &lhs, const T &rhs) const;
   template <class T>
-  [[nodiscard]] inline const bool IsGreater(const T &lhs, const T &rhs) const;
+  [[nodiscard]] inline bool IsGreater(const T &lhs, const T &rhs) const;
   template <class T>
-  [[nodiscard]] inline const bool IsLessOrEqual(const T &lhs,
-                                                const T &rhs) const;
+  [[nodiscard]] inline bool IsLessOrEqual(const T &lhs, const T &rhs) const;
   template <class T>
-  [[nodiscard]] inline const bool IsGreaterOrEqual(const T &lhs,
-                                                   const T &rhs) const;
+  [[nodiscard]] inline bool IsGreaterOrEqual(const T &lhs, const T &rhs) const;
 
   template <class T>
   inline void WriteValue(std::ostream &os, const T &src,
@@ -61,6 +63,6 @@ class Storage {
 std::ostream &operator<<(std::ostream &os, const Storage &storage);
 std::istringstream &operator>>(std::istringstream &stream, Storage &storage);
 
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_STORAGE_STORAGE_H_
+#endif  // TRANSACTIONSTORAGE_STORAGE_H_

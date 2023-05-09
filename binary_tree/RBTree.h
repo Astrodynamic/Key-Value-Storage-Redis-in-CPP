@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_BINARY_TREE_RBTREE_H_
-#define TRANSACTION_SRC_BINARY_TREE_RBTREE_H_
+#ifndef TRANSACTIONBINARY_TREE_RBTREE_H_
+#define TRANSACTIONBINARY_TREE_RBTREE_H_
 
 #include <chrono>
 #include <cstddef>
@@ -8,7 +8,7 @@
 #include <optional>
 #include <utility>
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class RBTree {
  protected:
@@ -73,6 +73,6 @@ class RBTree {
 
 #include "RBTIterator.inc"
 #include "RBTree.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_BINARY_TREE_RBTREE_H_
+#endif  // TRANSACTIONBINARY_TREE_RBTREE_H_

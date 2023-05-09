@@ -1,5 +1,8 @@
 #include "storage.h"
-namespace s21 {
+namespace FKG {
+
+Storage::Storage(const Storage &other) { *this = other; }
+
 Storage &Storage::operator=(const Storage &other) {
   if (this != &other) {
     if (other.surname.has_value()) {
@@ -24,7 +27,7 @@ Storage &Storage::operator=(const Storage &other) {
   return *this;
 }
 
-[[nodiscard]] const bool Storage::operator==(const Storage &other) const {
+[[nodiscard]] bool Storage::operator==(const Storage &other) const {
   if (!this->Equal(this->surname, other.surname) ||
       !this->Equal(this->name, other.name) ||
       !this->Equal(this->year_of_birth, other.year_of_birth) ||
@@ -36,12 +39,11 @@ Storage &Storage::operator=(const Storage &other) {
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::Equal(const T &lhs,
-                                               const T &rhs) const {
+[[nodiscard]] inline bool Storage::Equal(const T &lhs, const T &rhs) const {
   return !rhs || (lhs == rhs);
 }
 
-[[nodiscard]] const bool Storage::operator!=(const Storage &other) const {
+[[nodiscard]] bool Storage::operator!=(const Storage &other) const {
   if (!this->NotEqual(this->surname, other.surname) ||
       !this->NotEqual(this->name, other.name) ||
       !this->NotEqual(this->year_of_birth, other.year_of_birth) ||
@@ -53,12 +55,11 @@ template <class T>
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::NotEqual(const T &lhs,
-                                                  const T &rhs) const {
+[[nodiscard]] inline bool Storage::NotEqual(const T &lhs, const T &rhs) const {
   return !rhs || (lhs != rhs);
 }
 
-[[nodiscard]] const bool Storage::operator<(const Storage &other) const {
+[[nodiscard]] bool Storage::operator<(const Storage &other) const {
   if (!this->IsLess(this->surname, other.surname) ||
       !this->IsLess(this->name, other.name) ||
       !this->IsLess(this->year_of_birth, other.year_of_birth) ||
@@ -70,12 +71,11 @@ template <class T>
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::IsLess(const T &lhs,
-                                                const T &rhs) const {
+[[nodiscard]] inline bool Storage::IsLess(const T &lhs, const T &rhs) const {
   return !rhs || (lhs < rhs);
 }
 
-[[nodiscard]] const bool Storage::operator>(const Storage &other) const {
+[[nodiscard]] bool Storage::operator>(const Storage &other) const {
   if (!this->IsGreater(this->surname, other.surname) ||
       !this->IsGreater(this->name, other.name) ||
       !this->IsGreater(this->year_of_birth, other.year_of_birth) ||
@@ -87,12 +87,11 @@ template <class T>
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::IsGreater(const T &lhs,
-                                                   const T &rhs) const {
+[[nodiscard]] inline bool Storage::IsGreater(const T &lhs, const T &rhs) const {
   return !rhs || (lhs > rhs);
 }
 
-[[nodiscard]] const bool Storage::operator<=(const Storage &other) const {
+[[nodiscard]] bool Storage::operator<=(const Storage &other) const {
   if (!this->IsLessOrEqual(this->surname, other.surname) ||
       !this->IsLessOrEqual(this->name, other.name) ||
       !this->IsLessOrEqual(this->year_of_birth, other.year_of_birth) ||
@@ -104,12 +103,12 @@ template <class T>
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::IsLessOrEqual(const T &lhs,
-                                                       const T &rhs) const {
+[[nodiscard]] inline bool Storage::IsLessOrEqual(const T &lhs,
+                                                 const T &rhs) const {
   return !rhs || (lhs <= rhs);
 }
 
-[[nodiscard]] const bool Storage::operator>=(const Storage &other) const {
+[[nodiscard]] bool Storage::operator>=(const Storage &other) const {
   if (!this->IsGreaterOrEqual(this->surname, other.surname) ||
       !this->IsGreaterOrEqual(this->name, other.name) ||
       !this->IsGreaterOrEqual(this->year_of_birth, other.year_of_birth) ||
@@ -121,8 +120,8 @@ template <class T>
 }
 
 template <class T>
-[[nodiscard]] inline const bool Storage::IsGreaterOrEqual(const T &lhs,
-                                                          const T &rhs) const {
+[[nodiscard]] inline bool Storage::IsGreaterOrEqual(const T &lhs,
+                                                    const T &rhs) const {
   return !rhs || (lhs >= rhs);
 }
 
@@ -174,4 +173,4 @@ std::istringstream &operator>>(std::istringstream &stream, Storage &storage) {
   return stream;
 }
 
-}  // namespace s21
+}  // namespace FKG

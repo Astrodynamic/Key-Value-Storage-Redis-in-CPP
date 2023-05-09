@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_BINARY_TREE_RBTITERATOR_TPP_
-#define TRANSACTION_SRC_BINARY_TREE_RBTITERATOR_TPP_
+#ifndef TRANSACTIONBINARY_TREE_RBTITERATOR_TPP_
+#define TRANSACTIONBINARY_TREE_RBTITERATOR_TPP_
 
 template <class Key, class Value>
 class RBTree<Key, Value>::iterator {
@@ -72,4 +72,4 @@ class RBTree<Key, Value>::iterator {
   bool operator!=(const iterator &other) const { return !(other == *this); }
 };
 
-#endif  // TRANSACTION_SRC_BINARY_TREE_RBTITERATOR_TPP_
+#endif  // TRANSACTIONBINARY_TREE_RBTITERATOR_TPP_

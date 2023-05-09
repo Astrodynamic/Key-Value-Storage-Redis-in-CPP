@@ -1,6 +1,6 @@
 #include "b_plus_tree.h"
 
-namespace s21 {
+namespace FKG {
 template <>
 const std::size_t BPlusTree<std::string, Storage>::Upload(std::ifstream &is) {
   if (!m_root) {
@@ -32,4 +32,4 @@ template <>
 const std::size_t BPlusTree<std::string, Storage>::Export(std::ofstream &os) {
   return m_root ? m_root->Export(os) : static_cast<std::size_t>(0);
 }
-}  // namespace s21
+}  // namespace FKG

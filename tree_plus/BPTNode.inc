@@ -26,7 +26,7 @@ template <class Key, class Value>
 }
 
 template <class Key, class Value>
-[[nodiscard]] const bool BPTINode<Key, Value>::Exists(const Key &key) {
+[[nodiscard]] bool BPTINode<Key, Value>::Exists(const Key &key) {
   return GetLeafByKey(key).lock()->Exists(key);
 }
 
@@ -37,7 +37,7 @@ BPTINode<Key, Value>::Del(const Key &key) {
 }
 
 template <class Key, class Value>
-const bool BPTINode<Key, Value>::Update(const Key &key, const Value &value) {
+bool BPTINode<Key, Value>::Update(const Key &key, const Value &value) {
   return GetLeafByKey(key).lock()->Update(key, value);
 }
 
@@ -47,7 +47,7 @@ template <class Key, class Value>
 }
 
 template <class Key, class Value>
-const bool BPTINode<Key, Value>::Update(const Key &key, const Key &rename) {
+bool BPTINode<Key, Value>::Update(const Key &key, const Key &rename) {
   auto item = std::find(this->m_keys.begin(),
                         this->m_keys.begin() + this->m_elements, key);
 
@@ -261,7 +261,7 @@ template <class Key, class Value>
 }
 
 template <class Key, class Value>
-[[nodiscard]] const bool BPTLNode<Key, Value>::Exists(const Key &key) {
+[[nodiscard]] bool BPTLNode<Key, Value>::Exists(const Key &key) {
   auto item = std::find(this->m_keys.begin(),
                         this->m_keys.begin() + this->m_elements, key);
   return (this->m_keys.begin() + this->m_elements) != item;
@@ -282,7 +282,7 @@ BPTLNode<Key, Value>::Del(const Key &key) {
 }
 
 template <class Key, class Value>
-const bool BPTLNode<Key, Value>::Update(const Key &key, const Value &value) {
+bool BPTLNode<Key, Value>::Update(const Key &key, const Value &value) {
   auto item = std::find(this->m_keys.begin(),
                         this->m_keys.begin() + this->m_elements, key);
 
@@ -307,7 +307,7 @@ template <class Key, class Value>
 }
 
 template <class Key, class Value>
-const bool BPTLNode<Key, Value>::Update(const Key &key, const Key &rename) {
+bool BPTLNode<Key, Value>::Update(const Key &key, const Key &rename) {
   bool renamed{this->m_parent.expired()};
   if (!renamed) {
     renamed = this->m_parent.lock()->Update(key, rename);
@@ -364,7 +364,7 @@ void BPTLNode<Key, Value>::Showall() {
 
 template <class Key, class Value>
 [[nodiscard]] std::weak_ptr<BPTNode<Key, Value>>
-BPTLNode<Key, Value>::GetLeafByKey(const Key &key) {
+BPTLNode<Key, Value>::GetLeafByKey([[maybe_unused]] const Key &key) {
   return std::dynamic_pointer_cast<BPTLNode<Key, Value>>(
       this->shared_from_this());
 }

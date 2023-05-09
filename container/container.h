@@ -1,12 +1,12 @@
-#ifndef TRANSACTION_SRC_CONTEINER_CONTEINER_H_
-#define TRANSACTION_SRC_CONTEINER_CONTEINER_H_
+#ifndef TRANSACTIONCONTEINER_CONTEINER_H_
+#define TRANSACTIONCONTEINER_CONTEINER_H_
 
 #include <fstream>
 #include <optional>
 #include <utility>
 #include <vector>
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class AbstractContainer {
  public:
@@ -33,6 +33,6 @@ class AbstractContainer {
 };
 
 #include "container.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_CONTEINER_CONTEINER_H_
+#endif  // TRANSACTIONCONTEINER_CONTEINER_H_

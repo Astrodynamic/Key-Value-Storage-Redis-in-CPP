@@ -1,13 +1,13 @@
 #include "BPTNode.h"
 
-namespace s21 {
+namespace FKG {
 template <>
-const std::size_t BPTINode<std::string, Storage>::Export(std::ofstream &os) {
+std::size_t BPTINode<std::string, Storage>::Export(std::ofstream &os) {
   return m_childes[0]->Export(os);
 }
 
 template <>
-const std::size_t BPTLNode<std::string, Storage>::Export(std::ofstream &os) {
+std::size_t BPTLNode<std::string, Storage>::Export(std::ofstream &os) {
   std::size_t unloaded{0};
   decltype(m_next) leaf =
       std::dynamic_pointer_cast<BPTLNode<std::string, Storage> >(
@@ -21,4 +21,4 @@ const std::size_t BPTLNode<std::string, Storage>::Export(std::ofstream &os) {
   return unloaded;
 }
 
-}  // namespace s21
+}  // namespace FKG

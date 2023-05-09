@@ -50,11 +50,15 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.DS_Store
-build*
-.idea
+# CMake Files
 CMakeLists.txt.*
+
+# MacOS files
+.DS_Store
+
+# IDE files
+.idea
 .vscode
-src/binary_tree/RBTree.tpp
-src/.vscode/settings.json
-src/binary_tree/src.code-workspace
+
+# Directory
+build*

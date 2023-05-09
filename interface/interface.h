@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_INTERFACE_INTERFACE_H_
-#define TRANSACTION_SRC_INTERFACE_INTERFACE_H_
+#ifndef TRANSACTIONINTERFACE_INTERFACE_H_
+#define TRANSACTIONINTERFACE_INTERFACE_H_
 
 #include <filesystem>
 #include <fstream>
@@ -46,7 +46,7 @@ class Interface {
   static const std::vector<std::string> m_menus;
   std::unordered_map<std::string, fp_1arg> m_funcs;
 
-  std::unique_ptr<s21::AbstractContainer<std::string, s21::Storage>>
+  std::unique_ptr<FKG::AbstractContainer<std::string, FKG::Storage>>
       m_container;
 
   std::map<std::chrono::steady_clock::time_point, std::string> m_ttl;
@@ -70,10 +70,10 @@ class Interface {
   [[nodiscard]] const bool Export(std::istringstream &stream);
   [[nodiscard]] const bool Info(std::istringstream &stream);
 
-  void SetTTL(const s21::Storage &storage, const std::string &key);
+  void SetTTL(const FKG::Storage &storage, const std::string &key);
 
   using vector_container = std::vector<
-      std::unique_ptr<s21::AbstractContainer<std::string, s21::Storage>>>;
+      std::unique_ptr<FKG::AbstractContainer<std::string, FKG::Storage>>>;
   using ms = std::chrono::milliseconds;
   using time_sc = std::chrono::steady_clock;
 
@@ -90,4 +90,4 @@ class Interface {
   void TestFind(vector_container &, std::size_t, std::vector<double> &);
 };
 
-#endif  // TRANSACTION_SRC_INTERFACE_INTERFACE_H_
+#endif  // TRANSACTIONINTERFACE_INTERFACE_H_

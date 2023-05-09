@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_TREE_PLUS_B_PLUS_TREE_H_
-#define TRANSACTION_SRC_TREE_PLUS_B_PLUS_TREE_H_
+#ifndef TRANSACTIONTREE_PLUS_B_PLUS_TREE_H_
+#define TRANSACTIONTREE_PLUS_B_PLUS_TREE_H_
 
 #include <chrono>
 #include <functional>
@@ -15,7 +15,7 @@
 #include "container.h"
 #include "storage.h"
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class BPlusTree : virtual public AbstractContainer<Key, Value> {
  public:
@@ -47,6 +47,6 @@ class BPlusTree : virtual public AbstractContainer<Key, Value> {
 };
 
 #include "b_plus_tree.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_TREE_PLUS_B_PLUS_TREE_H_
+#endif  // TRANSACTIONTREE_PLUS_B_PLUS_TREE_H_

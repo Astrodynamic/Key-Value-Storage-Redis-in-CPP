@@ -113,9 +113,8 @@ template <class Key, class Value>
 [[nodiscard]] std::vector<Key> HashTable<Key, Value>::Keys() {
   std::vector<Key> result;
   for (auto &list : m_data) {
-    for (auto &item : list) {
-      result.push_back(item->first);
-    }
+    std::transform(list.begin(), list.end(), std::back_inserter(result),
+                   [](auto const &item) { return item->first; });
   }
   return result;
 }

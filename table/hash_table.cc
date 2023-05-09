@@ -1,6 +1,6 @@
 #include "hash_table.h"
 
-namespace s21 {
+namespace FKG {
 template <>
 const std::size_t HashTable<std::string, Storage>::Upload(std::ifstream &is) {
   std::size_t loaded{0};
@@ -34,4 +34,4 @@ const std::size_t HashTable<std::string, Storage>::Export(std::ofstream &os) {
   return unloaded;
 }
 
-}  // namespace s21
+}  // namespace FKG

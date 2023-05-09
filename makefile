@@ -1,11 +1,15 @@
-all: run
+all: build
 
-build:
-	cmake -S ./ -B ./build
+build: install
+
+rebuild: clean install
+
+install:
+	cmake -S . -B ./build
 	cmake --build ./build
 
-run: build
-	./build/Redis
+unistall:
+	find ./ -name "build" -type d -exec rm -rf {} +
 
 hash_table.a:
 	cmake -S ./table/ -B ./table/build
@@ -19,23 +23,22 @@ b_plus_tree.a:
 	cmake -S ./tree_plus/ -B ./tree_plus/build
 	cmake --build ./tree_plus/build
 
-test:
-	cmake -S ./tests/ -B ./tests/build
-	cmake --build ./tests/build
-	./tests/build/TEST
+clean: unistall
+	rm -rf ./lib/*
+
+tests:
+	cmake -S ./test/ -B ./test/build
+	cmake --build ./test/build
+	./test/build/TEST
+
+cppcheck: install
+	@cd build/; make cppcheck
+
+clang-format: install
+	@cd build/; make clang-format
 
 lcov: test
-	cd ./tests/build; make coverage;
-	open ./tests/build/coverage-report/index.html 
+	cd ./test/build; make coverage;
+	open ./test/build/coverage-report/index.html 
 
-style: build
-	cd ./build;\
-	make style
-
-cppcheck: build
-	cd ./build;\
-	make cppcheck
-
-clean:
-	find ./ -name "build" -type d -exec rm -rf {} +
-	rm -rf ./lib/*
+.PHONY: all build rebuild unistall clean cppcheck clang-format tests

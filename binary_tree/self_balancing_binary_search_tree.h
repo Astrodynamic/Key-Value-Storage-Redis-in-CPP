@@ -1,5 +1,5 @@
-#ifndef TRANSACTION_SRC_BINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
-#define TRANSACTION_SRC_BINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
+#ifndef TRANSACTIONBINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
+#define TRANSACTIONBINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
 
 #include <algorithm>
 #include <chrono>
@@ -15,7 +15,7 @@
 #include "container.h"
 #include "storage.h"
 
-namespace s21 {
+namespace FKG {
 template <class Key, class Value>
 class SelfBalancingBinarySearchTree
     : virtual public AbstractContainer<Key, Value>,
@@ -53,6 +53,6 @@ class SelfBalancingBinarySearchTree
 };
 
 #include "self_balancing_binary_search_tree.inc"
-}  // namespace s21
+}  // namespace FKG
 
-#endif  // TRANSACTION_SRC_BINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
+#endif  // TRANSACTIONBINARY_TREE_SELF_BALANCING_BINARY_SEARCH_TREE_H_
