@@ -1,4 +1,4 @@
-# Redis - Key-Value Store
+# Key - Value Storage (Redis) in CPP
 
 Redis is a key-value store implemented in C++. The keys in the Redis store are strings, and the values are records of students with the following fields:
 - Last name
